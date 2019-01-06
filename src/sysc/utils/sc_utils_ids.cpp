@@ -33,7 +33,7 @@
 
   Alex Riesen, Synopsys, Inc., 2003-02-02
   ported to SystemC 2.1 exception reporting.
-    
+
  *****************************************************************************/
 
 
@@ -59,7 +59,7 @@
 //
 
 #include "sysc/utils/sc_report.h"
-
+#include <string.h>
 
 namespace sc_core {
 #define SC_DEFINE_MESSAGE(id,unused,text) extern const char id[] = text;
@@ -110,7 +110,7 @@ int initialize()
     const char* deprecation_warn = std::getenv("SC_DEPRECATION_WARNINGS");
     if ( (deprecation_warn!=0) && !strcmp(deprecation_warn,"DISABLE") )
     {
-        sc_report_handler::set_actions("/IEEE_Std_1666/deprecated", 
+        sc_report_handler::set_actions("/IEEE_Std_1666/deprecated",
             SC_DO_NOTHING);
     }
     return 42;
